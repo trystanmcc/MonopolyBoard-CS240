@@ -149,8 +149,14 @@ public:
         // - Stop exactly when you reach MAX_SPACES
         // - Return number successfully added
         // - Do not corrupt pointers if capacity is exceeded
-        cout << "addMany unwritten" << endl;
-        return 0;
+        int added = 0;
+        while(nodeCount < MAX_SPACES && added < values.size())
+        {
+            addSpace(values[added]);
+            added++;
+        }
+
+        return added;
     }
 
     // -------------------------------
