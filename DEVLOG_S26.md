@@ -41,59 +41,59 @@ Each entry may be one of the following:
 ---
 
 ### Entry 2
-**Date:** YYYY-MM-DD  
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**  
-**Issue or decision:**  
-**Error message / symptom (if applicable):**  
-**What I tried:**  
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Date:** 2026-03-07  
+**Entry Type:** Bug Fix Entry 
+**Task worked on:**  Created the addMany function
+**Issue or decision:**  Used wrong comparison of ">=" when it should only be "<" reimplemented addSpace function when I could just call it.
+**Error message / symptom (if applicable):**  No error message
+**What I tried:**  I rewrote the logic with a simpler setup calling the addSpace method.
+**Fix / resolution (or final decision):**  Replace with "<" to stop when less than MAX_SPACES.
+**Commit(s):**  Added "addMany" function and fixed logic issues within function
 
 ---
 
 ### Entry 3
-**Date:** YYYY-MM-DD  
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**  
-**Issue or decision:**  
-**Error message / symptom (if applicable):**  
-**What I tried:**  
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Date:** 2026-03-08  
+**Entry Type:** Bug Fix 
+**Task worked on:**  Implemented movePlayer, printFromPlayer, printBoardOnce, and removeByName
+**Issue or decision:**  Implementaiton for connecting tail to head node did not work if head or tail was removed if the name matched
+**Error message / symptom (if applicable):**  List no longer maintains circular pattern
+**What I tried:**  I first added a "setup" condition that checked if the tail, head, or player node was removed otherwise setting the prev node to the current nodes next node essentially skipping over the curr node.
+**Fix / resolution (or final decision):**  I decided to start with that implemnetation either way since logically I only had the check conditions to maintain the circular loops if the name matched with one of the nodes that were different from a middle node.
+**Commit(s):**  Added "removeByName" bool function debugged logic
 
 ---
 
 ### Entry 4
-**Date:** YYYY-MM-DD  
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**  
-**Issue or decision:**  
-**Error message / symptom (if applicable):**  
-**What I tried:**  
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Date:** 2026-03-08  
+**Entry Type:** Edge Case  
+**Task worked on:**  Implemented clear method
+**Issue or decision:**  Removed nodes but did not reset nodeCount or unique nodes
+**Error message / symptom (if applicable):**  No error message
+**What I tried:**  I tried originally iterating through the linked list and only deleting the nodes after storing the current.
+**Fix / resolution (or final decision):**  After iterating through the list I also added a few lines to reset unique nodes like head, tail, and player node and reset the nodeCount back to zero.
+**Commit(s):**  Reset unique nodes and nodeCount in clear
 
 ---
 
 ### Entry 5
-**Date:** YYYY-MM-DD  
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**  
-**Issue or decision:**  
-**Error message / symptom (if applicable):**  
+**Date:** 2026-03-08  
+**Entry Type:** Engineering Decision  
+**Task worked on:**  Adding spaces for the board
+**Issue or decision:**  Separated sides based on color and type of space. Added corners similar to that of a real monopoly board.
+**Error message / symptom (if applicable):**  No error message
 **What I tried:**  
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Fix / resolution (or final decision):**  Searched real monopoly boards to hard-code a similar setup. Used a vector to push each space then used my addmany implementation to only add as many places as spaces as I have.
+**Commit(s):**  Implemented board spaces separated by color and vector hardcoded option
 
 ---
 
 ### Entry 6
-**Date:** YYYY-MM-DD  
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**  
-**Issue or decision:**  
-**Error message / symptom (if applicable):**  
-**What I tried:**  
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Date:** 2026-03-08  
+**Entry Type:** Edge Case
+**Task worked on:**  Fixing findByColor and removeByNmae
+**Issue or decision:**  findByColor was not working, this was discovering when testing at the end
+**Error message / symptom (if applicable):**  No error message
+**What I tried:**  Before I had only deleted the same node first node if it matched the color
+**Fix / resolution (or final decision):**  I had to iterate to the next node by adding curr=curr->nextNode after the if check and in the for loop.
+**Commit(s):**  Fixed removeByColor
