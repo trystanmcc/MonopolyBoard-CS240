@@ -288,8 +288,16 @@ public:
         // - Traverse ring exactly once
         // - Collect matching names in vector<string>
         // - Return matches
-        cout << "findByColor unwritten" << endl;
         vector<string> matches;
+        Node<T>* curr = playerNode;
+        for (int i=0; i<nodeCount; i++)
+        {
+            if (curr->data.propertyColor == color)
+            {
+                matches.push_back(curr->data.propertyName);
+            }
+        }
+
         return matches;
     }
 
