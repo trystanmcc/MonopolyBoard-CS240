@@ -296,6 +296,7 @@ public:
             {
                 matches.push_back(curr->data.propertyName);
             }
+            curr = curr->nextNode;
         }
 
         return matches;
@@ -453,7 +454,7 @@ int main() {
     // board.mirrorBoard();
 
     board.removeByName("New York City");
-    vector<string> OrangeStuff = board.findByColor("Orange");
+    vector<string> OrangeStuff = board.findByColor("Blue");
 
     return 0;
 }
