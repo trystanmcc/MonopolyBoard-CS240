@@ -241,6 +241,13 @@ public:
         // - Maintain circular link tail->next=head
         // - If playerNode points to deleted node, move playerNode to a safe node
         // - nodeCount--
+        if (headNode == tailNode && headNode->data.propertyName == name)
+        {
+            delete headNode;
+            nodeCount == 0;
+            return true;
+        }
+
         if (headNode == nullptr)
         {
             return false;
