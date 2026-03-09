@@ -388,7 +388,44 @@ int main() {
     //
     // NOTE: This starter calls addSpace once to show the intended API,
     // but your final submission should build a meaningful board.
-    board.addSpace(MonopolySpace("GO", "None", 0, 0));
+
+    vector<MonopolySpace> spaces;
+
+    //CORNER 1
+    spaces.push_back(MonopolySpace("GO", "None", 0, 0));
+
+    //TOP Utility
+    spaces.push_back(MonopolySpace("Water Works", "None", 150, 0));
+    spaces.push_back(MonopolySpace("Fire Department", "None", 200, 0));
+    spaces.push_back(MonopolySpace("Hospital", "None", 300, 0));
+
+    //CORNER 2
+    spaces.push_back(MonopolySpace("Free Parking", "None", 0, 0));
+
+    //LEFT Housing
+    spaces.push_back(MonopolySpace("Something Avenue", "Orange", 150, 100));
+    spaces.push_back(MonopolySpace("Good Avenue", "Orange", 500, 300));
+    spaces.push_back(MonopolySpace("Bad Avenue", "Orange", 100, 40));
+
+    //CORNER 3
+    spaces.push_back(MonopolySpace("In Jail", "None", -100, 0));
+
+    //BOTTOM Parks
+    spaces.push_back(MonopolySpace("Liberty Park", "Blue", 500, 200));
+    spaces.push_back(MonopolySpace("Limerick Park", "Blue", 1000, 500));
+    spaces.push_back(MonopolySpace("East Branch Park", "Blue", 300, 100));
+
+    //CORNER 4
+    spaces.push_back(MonopolySpace("Free Parking", "None", 0, 0));
+
+    //LEFT Cities
+    spaces.push_back(MonopolySpace("New York City", "Pink", 10000, 1000));
+    spaces.push_back(MonopolySpace("Los Angeles", "Pink", 15000, 1200));
+    spaces.push_back(MonopolySpace("San Diego", "Pink", 20000, 1500));
+
+    board.addMany(spaces);
+
+
 
     // -------------------------------
     // Playable Traversal Loop
@@ -414,6 +451,9 @@ int main() {
     //
     // Option B example:
     // board.mirrorBoard();
+
+    board.removeByName("New York City");
+    vector<string> OrangeStuff = board.findByColor("Orange");
 
     return 0;
 }
