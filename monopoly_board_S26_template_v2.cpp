@@ -353,6 +353,11 @@ public:
 
             delete temp;
         }
+
+        headNode = nullptr;
+        tailNode = nullptr;
+        playerNode = nullptr;
+        nodeCount = 0;
     }
 };
 
