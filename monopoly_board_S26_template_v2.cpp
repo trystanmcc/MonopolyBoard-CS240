@@ -169,7 +169,21 @@ public:
         // - Detect and track passing GO:
         //   increment passGoCount when a move crosses from tail back to head
         // - Must handle empty list safely
-        cout << "movePlayer unwritten" << endl;
+
+        if (headNode == nullptr)
+        {
+            cout << "Tried to move player, list is empty" << endl;
+            return;
+        }
+
+        for (int i=0; i<steps; i++)
+        {
+            if (playerNode->nextNode == headNode)
+            {
+                passGoCount++;
+            }
+            playerNode = playerNode->nextNode;
+        }
     }
 
     int getPassGoCount() {
@@ -185,14 +199,33 @@ public:
         // - Must not infinite loop
         // - Must handle empty list
         // - Output must be deterministic and readable
-        cout << "printFromPlayer unwritten" << endl;
+        if (headNode == nullptr)
+        {
+            cout << "Tried to print player, list is empty" << endl;
+            return;
+        }
+
+        Node<T>* curr = playerNode;
+        for (int i=0; i<count; i++)
+        {
+            curr->data.print();
+            curr = curr->nextNode;
+        }
     }
 
     // Optional helper: print full board once (one full cycle)
     void printBoardOnce() {
         // TODO:
         // - Traverse exactly one full cycle and print each node
-        cout << "printBoardOnce unwritten" << endl;
+        Node<T>* curr = playerNode;
+
+        for (int i=0; i<nodeCount-1; i++)
+        {
+            cout << curr->nextNode << endl;
+            curr = curr->nextNode;
+        }
+
+
     }
 
     // -------------------------------
@@ -208,7 +241,42 @@ public:
         // - Maintain circular link tail->next=head
         // - If playerNode points to deleted node, move playerNode to a safe node
         // - nodeCount--
-        cout << "removeByName unwritten" << endl;
+        if (headNode == nullptr)
+        {
+            return false;
+        }
+
+        Node<T>* curr = headNode;
+        Node<T>* prev = tailNode;
+
+        for (int i=0; i<nodeCount; i++)
+        {
+            if (curr->data.propertyName == name)
+            {
+                prev->nextNode = curr->nextNode;
+
+                if (curr == tailNode)
+                {
+                    tailNode = prev;
+                }
+                if (curr == headNode)
+                {
+                    headNode = curr->nextNode;
+                }
+                if (curr == playerNode)
+                {
+                    playerNode = curr->nextNode;
+                }
+
+                delete curr;
+                tailNode->nextNode = headNode;
+                nodeCount--;
+                return true;
+            }
+            prev = curr;
+            curr = curr->nextNode;
+        }
+
         return false;
     }
 
