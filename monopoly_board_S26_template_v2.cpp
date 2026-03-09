@@ -340,7 +340,19 @@ public:
         // - Safely delete all nodes
         // - Tip: if tailNode exists, break the cycle first: tailNode->nextNode = nullptr
         // - Then delete like a normal singly linked list
-        cout << "clear unwritten" << endl;
+        if (tailNode != nullptr)
+        {
+            tailNode->nextNode = nullptr;
+        }
+
+        Node<T>* curr = headNode;
+        for (int i=0; i<nodeCount; i++)
+        {
+            Node<T>* temp = curr;
+            curr = curr->nextNode;
+
+            delete temp;
+        }
     }
 };
 
