@@ -320,8 +320,16 @@ public:
         // TODO:
         // - Must be O(n), traverse exactly once with correct stop condition
         // - Do NOT rely on nodeCount for this method
-        cout << "countSpaces unwritten" << endl;
-        return 0;
+        int count = 0;
+        Node<T>* curr = headNode;
+
+        while (curr->nextNode != headNode)
+        {
+            count++;
+            curr = curr->nextNode;
+        }
+
+        return count;
     }
 
     // -------------------------------
